@@ -1,0 +1,10 @@
+C:\Users\LENOVO\Desktop\Codep134\CompanyConsoleApp\Ultities\bin\Debug\netcoreapp3.1\Ultities.deps.json
+C:\Users\LENOVO\Desktop\Codep134\CompanyConsoleApp\Ultities\bin\Debug\netcoreapp3.1\Ultities.dll
+C:\Users\LENOVO\Desktop\Codep134\CompanyConsoleApp\Ultities\bin\Debug\netcoreapp3.1\Ultities.pdb
+C:\Users\LENOVO\Desktop\Codep134\CompanyConsoleApp\Ultities\obj\Debug\netcoreapp3.1\Ultities.csproj.AssemblyReference.cache
+C:\Users\LENOVO\Desktop\Codep134\CompanyConsoleApp\Ultities\obj\Debug\netcoreapp3.1\Ultities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LENOVO\Desktop\Codep134\CompanyConsoleApp\Ultities\obj\Debug\netcoreapp3.1\Ultities.AssemblyInfoInputs.cache
+C:\Users\LENOVO\Desktop\Codep134\CompanyConsoleApp\Ultities\obj\Debug\netcoreapp3.1\Ultities.AssemblyInfo.cs
+C:\Users\LENOVO\Desktop\Codep134\CompanyConsoleApp\Ultities\obj\Debug\netcoreapp3.1\Ultities.csproj.CoreCompileInputs.cache
+C:\Users\LENOVO\Desktop\Codep134\CompanyConsoleApp\Ultities\obj\Debug\netcoreapp3.1\Ultities.dll
+C:\Users\LENOVO\Desktop\Codep134\CompanyConsoleApp\Ultities\obj\Debug\netcoreapp3.1\Ultities.pdb

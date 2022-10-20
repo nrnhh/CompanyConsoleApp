@@ -11,26 +11,26 @@ namespace Business.Services
     {
 
         public CompanyRepository companyRepository { get; set; }
-        public static  int Count { get; set; }
+        public static int Count { get; set; }
         public CompanyService()
         {
-            companyRepository = new CompanyRepository();    
+            companyRepository = new CompanyRepository();
         }
-       
+
         public Company Create(Company company)
         {
             try
             {
 
                 Company existCompany = companyRepository.Get(c => c.Name.ToLower() == company.Name.ToLower());
-                if (existCompany!=null)
+                if (existCompany != null)
                 {
                     return null;
                 }
-                company.Id=Count; 
+                company.Id = Count;
                 companyRepository.Add(company);
                 Count++;
-                return company; 
+                return company;
             }
             catch (Exception)
             {
@@ -41,7 +41,24 @@ namespace Business.Services
 
         public Company Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Company existCompany = companyRepository.Get(c => c.Id == id);
+                if (existCompany != null)
+                {
+                    companyRepository.Remove(existCompany);
+                    return existCompany;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public Company Get(int id)
@@ -56,12 +73,32 @@ namespace Business.Services
 
         public List<Company> GetAll()
         {
-            throw new NotImplementedException();
+            return companyRepository.GetAll();
         }
 
         public Company Update(int id, Company company)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Company existCompany = companyRepository.Get(c => c.Id == id);
+
+               
+                if (existCompany != null)
+                {
+                    existCompany.Name = company.Name;
+                    existCompany.MaxSize = company.MaxSize;
+
+                    return existCompany;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

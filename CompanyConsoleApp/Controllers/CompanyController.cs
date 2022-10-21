@@ -98,5 +98,21 @@ namespace CompanyConsoleApp.Controllers
 
 
         }
+        public void GetWithName()
+        {
+            GetAll();
+            string name = Console.ReadLine();
+            Company company = companyService.Get(name);
+            Console.WriteLine($"{company.Name} found ");
+        }
+
+        public void GetWithId()
+        {
+            GetAll();
+            Helper.ShowDisplay(ConsoleColor.DarkRed, "Enter Company Id U Looking For");
+            int id = int.Parse(Console.ReadLine());
+            Company company = companyService.Get(id);
+            Console.WriteLine($"{company.Id}  {company.Name} found ");
+        }
     }
 }

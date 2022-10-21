@@ -37,6 +37,12 @@ namespace CompanyConsoleApp
                         case (int)Helper.GroupMethods.DeleteGroup:
                             companyController.Remove();
                             break;
+                        case (int)Helper.GroupMethods.GetGroupById:
+                            companyController.GetWithId();
+                            break;
+                        case (int)Helper.GroupMethods.GetGroupByName:
+                            companyController.GetWithName();
+                            break;
 
                         case 6:
 

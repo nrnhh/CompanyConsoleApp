@@ -4,6 +4,7 @@ using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Linq;
 
 namespace Business.Services
 {
@@ -63,12 +64,38 @@ namespace Business.Services
 
         public Company Get(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Company company = companyRepository.Get(c =>c.Id==id);
+                if (company != null)
+                {
+                    return company;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public Company Get(string name)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Company company = companyRepository.Get(c => c.Name.ToLower() == name.ToLower());
+                if (company!=null)
+                {
+                    return company;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public List<Company> GetAll()

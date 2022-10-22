@@ -13,14 +13,21 @@ namespace Ultities
             Console.WriteLine(message);
             Console.ResetColor();
         }
-        public enum GroupMethods
+        public enum Methods
         {
-            CreateGroup = 1,
-            UpdateGroup,
-            DeleteGroup,
-            GetGroupById,
-            GetGroupByName,
-            GetAll
+            CreateCompany = 1,
+            UpdateCompany,
+            DeleteCompany,
+            GetCompanyById,
+            GetCompanyByName,
+            GetAllCompany,
+            CreateWorker,
+            GetAllWorkers,
+            GetAllWorkersWithCompanyName,
+            DeleteWorker,
+            GetAllWorkersWithSameName,
+            UpdateWorker,
+            GetWorkerById
 
 
         }

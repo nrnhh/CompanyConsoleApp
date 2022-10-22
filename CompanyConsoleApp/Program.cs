@@ -14,9 +14,13 @@ namespace CompanyConsoleApp
         {
             CompanyService companyService = new CompanyService();
             CompanyController companyController = new CompanyController();
-            Console.WriteLine("1-Create Company ;" + "2-Update Company ;"
+            WorkerController workerController = new WorkerController();
+            Helper.ShowDisplay(ConsoleColor.Magenta,"1-Create Company ;" + "2-Update Company ;"
                 +"3-Delete Company ;" +"4-GetCompanyById ;" 
-                +"5-GetCompanyName ;"+ "6-GetAll ;");
+                +"5-GetCompanyName ;"+ "6-GetAll ;" + "7- CreateWorker ; " + "8-GetAllWorkers ;" 
+                +"9-GetAllWorkersWithCompanyName ;" +"10-DeleteWorker ;" + "11-GetAllWorkersWithSameName ; "
+                + "12-UpdateWorker ; " + "13-GetWorkerById  :"
+            );
 
 
             while (true)
@@ -24,30 +28,64 @@ namespace CompanyConsoleApp
                 string selectMenu = Console.ReadLine();
                 int menu;
                 bool isChange = Int32.TryParse(selectMenu, out menu);
-                if (isChange && menu >= 1 && menu <= 6)
+                if (isChange && menu >= 1 && menu <= 13)
                 {
                     switch (menu)
                     {
-                        case (int)Helper.GroupMethods.CreateGroup:
+                        case (int)Helper.Methods.CreateCompany:
                             companyController.Create();
                             break;
-                        case (int)Helper.GroupMethods.UpdateGroup:
+                        case (int)Helper.Methods.UpdateCompany:
                             companyController.Update();
                             break;
-                        case (int)Helper.GroupMethods.DeleteGroup:
+                        case (int)Helper.Methods.DeleteCompany:
                             companyController.Remove();
                             break;
-                        case (int)Helper.GroupMethods.GetGroupById:
+                        case (int)Helper.Methods.GetCompanyById:
                             companyController.GetWithId();
                             break;
-                        case (int)Helper.GroupMethods.GetGroupByName:
+                        case (int)Helper.Methods.GetCompanyByName:
                             companyController.GetWithName();
                             break;
 
-                        case 6:
+                        case (int)Helper.Methods.GetAllCompany:
 
-                            companyController.Create();
+                            companyController.GetAll();
                             break;
+                        case (int)Helper.Methods.CreateWorker:
+
+                            workerController.Create();
+                            break;
+
+                        case (int)Helper.Methods.GetAllWorkers:
+
+                            workerController.GetAll();
+                            break;
+                        case (int)Helper.Methods.GetAllWorkersWithCompanyName:
+
+                            workerController.GetAllWorkersWithCompanyName();
+                            break;
+                        case (int)Helper.Methods.DeleteWorker:
+
+                            workerController.Delete();
+                            break;
+                        case (int)Helper.Methods.GetAllWorkersWithSameName:
+
+                            workerController.GetAllWorkersWithSameName();
+                            break;
+                        case (int)Helper.Methods.UpdateWorker:
+
+                            workerController.UpdateWorker();
+                            break;
+                        case (int)Helper.Methods.GetWorkerById:
+
+                            workerController.GetWithId();
+                            break;
+
+
+
+
+
 
 
 

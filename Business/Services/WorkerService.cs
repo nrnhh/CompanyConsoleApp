@@ -101,13 +101,13 @@ namespace Business.Services
         {
             try
             {
-                Worker existWorker = workerRepository.Get(w => w.Name.ToLower() ==worker.Name.ToLower() );
+                Worker existWorker = workerRepository.Get(w => w.Name.ToLower() == worker.Name.ToLower());
 
 
                 if (existWorker != null)
                 {
                     existWorker.Name = worker.Name;
-                  
+
 
                     return existWorker;
                 }
@@ -121,7 +121,51 @@ namespace Business.Services
                 return null;
             }
         }
+        public Worker GetSurname(string surname )
+        {
 
+            try
+            {
+                Worker worker = workerRepository.Get(w => w.Name == surname);
+                if (worker != null)
+                {
+                    return worker;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+        public Worker UpdateWorkerSurname(Worker worker , string workerSurname)
+        {
+            try
+            {
+                Worker existWorker = workerRepository.Get(w => w.Surname.ToLower() == worker.Surname.ToLower());
+
+
+                if (existWorker != null)
+                {
+                    existWorker.Surname = worker.Surname;
+
+
+                    return existWorker;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
+        }
+
+       
         
     }
 }

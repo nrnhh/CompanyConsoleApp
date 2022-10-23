@@ -91,7 +91,7 @@ namespace CompanyConsoleApp.Controllers
                 Helper.ShowDisplay(ConsoleColor.DarkRed, $"{item.Id} {item.Name} {item.Surname} {item.Company.Name}");
             }
         }
-        public void UpdateWorker()
+        public void UpdateWorkerName()
         {
            
             Helper.ShowDisplay(ConsoleColor.DarkGreen, "Enter Worker  Name");
@@ -103,13 +103,13 @@ namespace CompanyConsoleApp.Controllers
 
             Worker worker = new Worker
             {
-                Name = workerName
+                Name = workerNewName
                 
             };
             if (workerService.Update( worker , workerName) != null)
             {
                 
-                Helper.ShowDisplay(ConsoleColor.DarkRed, $"{workerNewName} Worker Updated");
+                Helper.ShowDisplay(ConsoleColor.DarkRed, $"{worker.Name} Worker Updated");
             }
             else
             {
@@ -123,6 +123,40 @@ namespace CompanyConsoleApp.Controllers
             int id = int.Parse(Console.ReadLine());
             Worker worker = workerService.Get(id);
             Console.WriteLine($"{worker.Id}  {worker.Name} found ");
+        }
+        public void GetWithSurname()
+        {
+            GetAll();
+            Helper.ShowDisplay(ConsoleColor.DarkRed, "Enter Worker Surname U Looking For");
+            string surname = Console.ReadLine();
+            Worker worker = workerService.GetSurname(surname);
+            Console.WriteLine($"  {worker.Name} found ");
+
+        }
+        public void UpdateWorkerSurname()
+        {
+
+            Helper.ShowDisplay(ConsoleColor.DarkGreen, "Enter Worker  Surname");
+            string workerSurname = Console.ReadLine();
+            Helper.ShowDisplay(ConsoleColor.DarkGreen, "Enter Worker New  Surname");
+            string workerNewSurname = Console.ReadLine();
+
+
+
+            Worker worker = new Worker
+            {
+                Surname = workerNewSurname
+
+            };
+            if (workerService.Update(worker, workerNewSurname) != null)
+            {
+
+                Helper.ShowDisplay(ConsoleColor.DarkRed, $"{worker.Surname} Worker Updated");
+            }
+            else
+            {
+                Helper.ShowDisplay(ConsoleColor.DarkYellow, "Something went wrong ");
+            }
         }
 
 

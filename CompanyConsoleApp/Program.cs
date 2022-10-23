@@ -15,11 +15,11 @@ namespace CompanyConsoleApp
             CompanyService companyService = new CompanyService();
             CompanyController companyController = new CompanyController();
             WorkerController workerController = new WorkerController();
-            Helper.ShowDisplay(ConsoleColor.Magenta,"1-Create Company ;" + "2-Update Company ;"
-                +"3-Delete Company ;" +"4-GetCompanyById ;" 
-                +"5-GetCompanyName ;"+ "6-GetAll ;" + "7- CreateWorker ; " + "8-GetAllWorkers ;" 
-                +"9-GetAllWorkersWithCompanyName ;" +"10-DeleteWorker ;" + "11-GetAllWorkersWithSameName ; "
-                + "12-UpdateWorker ; " + "13-GetWorkerById  :"
+            Helper.ShowDisplay(ConsoleColor.Magenta,"1-Create Company :" + "2-Update Company :"
+                +"3-Delete Company :" +"4-GetCompanyById :" 
+                +"5-GetCompanyName :"+ "6-GetAll :" + "7- CreateWorker : " + "8-GetAllWorkers :" 
+                +"9-GetAllWorkersWithCompanyName :" +"10-DeleteWorker :" + "11-GetAllWorkersWithSameName : "
+                + "12-UpdateWorkerName : " + "13-GetWorkerById  : " +"14-GetWorkerWithSurname :" + "15- UpdateWorkerSurname :  "
             );
 
 
@@ -28,7 +28,7 @@ namespace CompanyConsoleApp
                 string selectMenu = Console.ReadLine();
                 int menu;
                 bool isChange = Int32.TryParse(selectMenu, out menu);
-                if (isChange && menu >= 1 && menu <= 13)
+                if (isChange && menu >= 1 && menu <= 15)
                 {
                     switch (menu)
                     {
@@ -73,15 +73,21 @@ namespace CompanyConsoleApp
 
                             workerController.GetAllWorkersWithSameName();
                             break;
-                        case (int)Helper.Methods.UpdateWorker:
 
-                            workerController.UpdateWorker();
+                            workerController.UpdateWorkerName();
                             break;
                         case (int)Helper.Methods.GetWorkerById:
 
                             workerController.GetWithId();
                             break;
+                        case (int)Helper.Methods.GetSurname:
 
+                            workerController.GetWithSurname();
+                            break;
+                        case (int)Helper.Methods.UpdateWorkerSurname:
+
+                            workerController.UpdateWorkerSurname();
+                            break;
 
 
 

@@ -114,5 +114,6 @@ namespace CompanyConsoleApp.Controllers
             Company company = companyService.Get(id);
             Console.WriteLine($"{company.Id}  {company.Name} found ");
         }
+
     }
 }

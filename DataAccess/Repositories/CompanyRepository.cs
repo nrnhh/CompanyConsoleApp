@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace DataAccess.Repositories
 {
@@ -52,20 +53,21 @@ namespace DataAccess.Repositories
             }
         }
 
-        public bool Update(int id , Company newCompany)
+        public bool Update(  Company entity)
         {
-            Company company1 = new Company();
-            if (Get(n=>n.Id==id)!=null)
+            try
+            {
+                Company company = Get(n => n.Name == entity.Name);
+                company = entity;
+
+                return true;
+            }
+            catch (Exception)
             {
 
-                company1 = Get(n => n.Id == id);
-                company1= new Company();
-                company1.Id = id;
-                return true;
-
+                return false;
             }
-            return false;
-            
+
         }
     }
 }

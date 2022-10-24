@@ -9,7 +9,7 @@ namespace Business.Interfaces
     {
         Company Create(Company company);    
         Company Delete(int id );    
-        bool  Update(int id , Company newCompany);   
+        Company  Update(int id , Company Company);   
         List<Company> GetAll();
         Company Get(int id);    
         Company Get(string  name);

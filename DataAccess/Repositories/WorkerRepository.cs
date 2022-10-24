@@ -64,6 +64,11 @@ namespace DataAccess.Repositories
             }
             return false;
         }
+
+        public bool Update(Worker Entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

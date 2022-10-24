@@ -4,6 +4,7 @@ using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
 namespace Business.Services
@@ -103,15 +104,29 @@ namespace Business.Services
             return companyRepository.GetAll();
         }
 
-        public bool Update(int id, Company company)
+        public Company Update(int id, Company company)
         {
-            companyRepository.Update(id, company);
-
-            if (companyRepository.Update(id, company)==true)
+            try
             {
-                return true;
+                Company existCompany = companyRepository.Get(g => g.Id == id);
+
+
+                if (existCompany != null)
+                {
+
+                    existCompany.Name = company.Name;
+                    existCompany.MaxSize = company.MaxSize;
+                    return existCompany;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            return false;
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }

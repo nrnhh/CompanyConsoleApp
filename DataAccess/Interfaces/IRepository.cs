@@ -8,7 +8,7 @@ namespace DataAccess.Interfaces
     public interface IRepository<T> where T : IEntity
     {
         bool Add(T entity);
-        bool Update(int id, T newEntity);
+        bool Update( T Entity);
 
         bool Remove(T entity);
         T Get(Predicate<T> filter = null);

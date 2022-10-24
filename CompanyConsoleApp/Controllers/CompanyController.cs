@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using Ultities;
 
 namespace CompanyConsoleApp.Controllers
@@ -76,22 +77,30 @@ namespace CompanyConsoleApp.Controllers
         }
         public void Update()
         {
-            
 
-            Console.WriteLine("Plese enter the id");
+
+            Helper.ShowDisplay(ConsoleColor.DarkCyan, "Enter Company ID for Change");
             int id = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Plese enter the name of new ");
+            Helper.ShowDisplay(ConsoleColor.Yellow, "Enter Company Name");
             string name = Console.ReadLine();
-            Console.WriteLine("enter new max size");
-            int maxSize= int.Parse(Console.ReadLine());
 
-            Company company = new Company();
-            company.MaxSize = maxSize;
-            company.Name = name;
 
-            companyService.Update(id,company);
-            Console.WriteLine($"{company.Name } updated");
+            Helper.ShowDisplay(ConsoleColor.Yellow, "Enter Company Size");
+            int size = int.Parse(Console.ReadLine());
+
+            Company company = new Company
+            {
+                Name = name,
+                MaxSize = size,
+            };
+            if (companyService.Update(id, company) != null)
+            {
+                Helper.ShowDisplay(ConsoleColor.DarkMagenta, "Company Updated");
+            }
+            else
+            {
+                Helper.ShowDisplay(ConsoleColor.Cyan, " something went wrong  ");
+            }
 
         }
         public void GetWithName()

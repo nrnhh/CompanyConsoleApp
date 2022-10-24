@@ -26,7 +26,7 @@ namespace Ultities
             GetAllWorkersWithCompanyName,
             DeleteWorker,
             GetAllWorkersWithSameName,
-            UpdateWorkerName,
+            
             GetWorkerById,
             GetSurname,
             UpdateWorkerSurname

@@ -31,7 +31,7 @@ namespace DataAccess.Repositories
 
         public List<Worker> GetAll(Predicate<Worker> filter = null)
         {
-            return filter== null ? DbContext.workers.ToList() : DbContext.workers.FindAll(filter);      
+            return filter== null ? DbContext.workers.ToList() : DbContext.workers.FindAll(filter); 
             
                
             
@@ -51,20 +51,19 @@ namespace DataAccess.Repositories
             }
         }
 
-        public bool Update(Worker entity)
+        public bool Update(int id, Worker newEntity)
         {
-            try
-            {
-                Worker work = Get(n => n.Name == entity.Name);
-                work.Name = entity.Name;
-                work.Surname = entity.Surname;
-                return true;
-            }
-            catch (Exception)
+            Worker company1 = new Worker();
+            if (Get(n => n.Id == id) != null)
             {
 
-                throw;
+                company1 = Get(n => n.Id == id);
+                Remove(company1);                newEntity.Id = id;
+                Add(newEntity);
+
             }
+            return false;
         }
     }
 }
+

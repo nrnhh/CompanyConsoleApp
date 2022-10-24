@@ -8,8 +8,8 @@ namespace Business.Interfaces
     public interface IWorker
     {
 
-        Worker Create(Worker worker, string groupName);
-        Worker Update(Worker worker, string groupName);
+        Worker Create(Worker worker, string companyName);
+       bool  UpdateWorker(int id ,  Worker newWorker);
         Worker Delete(int Id);
         Worker Get(int Id);
         List<Worker> Get(string companyName);

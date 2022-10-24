@@ -19,9 +19,9 @@ namespace Business.Services
             companyService = new CompanyService();  
             workerRepository = new WorkerRepository();  
         }
-        public Worker Create(Worker worker, string groupName)
+        public Worker Create(Worker worker, string companyName)
         {
-           Company company = companyService.Get(groupName);
+           Company company = companyService.Get(companyName);
             if (company!=null)
             {
                 worker.Id = Count;
@@ -97,30 +97,7 @@ namespace Business.Services
           return workerRepository.GetAll(); 
         }
 
-        public Worker Update(Worker worker, string workerName)
-        {
-            try
-            {
-                Worker existWorker = workerRepository.Get(w => w.Name.ToLower() == worker.Name.ToLower());
-
-
-                if (existWorker != null)
-                {
-                    existWorker.Name = worker.Name;
-
-
-                    return existWorker;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
+       
         public Worker GetSurname(string surname )
         {
 
@@ -139,33 +116,18 @@ namespace Business.Services
                 return null;
             }
         }
-        public Worker UpdateWorkerSurname(Worker worker , string workerSurname)
-        {
-            try
-            {
-                Worker existWorker = workerRepository.Get(w => w.Surname.ToLower() == worker.Surname.ToLower());
-
-
-                if (existWorker != null)
-                {
-                    existWorker.Surname = worker.Surname;
-
-
-                    return existWorker;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-
-        }
-
        
+
         
+
+        public bool UpdateWorker(int id, Worker newWorker)
+        {
+            workerRepository.Update(id, newWorker);
+            if (workerRepository.Update(id, newWorker)==true)
+            {
+                return true; 
+            }
+            return false;
+        }
     }
 }

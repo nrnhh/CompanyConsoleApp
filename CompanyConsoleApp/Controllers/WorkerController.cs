@@ -91,31 +91,7 @@ namespace CompanyConsoleApp.Controllers
                 Helper.ShowDisplay(ConsoleColor.DarkRed, $"{item.Id} {item.Name} {item.Surname} {item.Company.Name}");
             }
         }
-        public void UpdateWorkerName()
-        {
-           
-            Helper.ShowDisplay(ConsoleColor.DarkGreen, "Enter Worker  Name");
-            string workerName = Console.ReadLine();
-            Helper.ShowDisplay(ConsoleColor.DarkGreen, "Enter Worker New  Name");
-            string workerNewName = Console.ReadLine();
-
-
-
-            Worker worker = new Worker
-            {
-                Name = workerNewName
-                
-            };
-            if (workerService.Update( worker , workerName) != null)
-            {
-                
-                Helper.ShowDisplay(ConsoleColor.DarkRed, $"{worker.Name} Worker Updated");
-            }
-            else
-            {
-                Helper.ShowDisplay(ConsoleColor.DarkYellow, "Something went wrong ");
-            }
-        }
+        
         public void GetWithId()
         {
             GetAll();
@@ -133,30 +109,23 @@ namespace CompanyConsoleApp.Controllers
             Console.WriteLine($"  {worker.Name} found ");
 
         }
-        public void UpdateWorkerSurname()
+        public void UpdateWorker()
         {
 
-            Helper.ShowDisplay(ConsoleColor.DarkGreen, "Enter Worker  Surname");
-            string workerSurname = Console.ReadLine();
-            Helper.ShowDisplay(ConsoleColor.DarkGreen, "Enter Worker New  Surname");
-            string workerNewSurname = Console.ReadLine();
+            Console.WriteLine("Plese enter the id");
+            int id = int.Parse(Console.ReadLine());
 
+            Console.WriteLine("Plese enter  new name ");
+            string name = Console.ReadLine();
+            Console.WriteLine("enter new surname");
+            string surname = Console.ReadLine();
 
+            Worker worker = new Worker();
+            worker.Surname = surname;
+            worker.Name = name;
 
-            Worker worker = new Worker
-            {
-                Surname = workerNewSurname
-
-            };
-            if (workerService.Update(worker, workerNewSurname) != null)
-            {
-
-                Helper.ShowDisplay(ConsoleColor.DarkRed, $"{worker.Surname} Worker Updated");
-            }
-            else
-            {
-                Helper.ShowDisplay(ConsoleColor.DarkYellow, "Something went wrong ");
-            }
+                workerService.UpdateWorker(id, worker);
+            Console.WriteLine($"{worker.Name} {worker.Surname} updated");
         }
 
 

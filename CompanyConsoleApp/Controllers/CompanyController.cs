@@ -76,26 +76,22 @@ namespace CompanyConsoleApp.Controllers
         }
         public void Update()
         {
-            Helper.ShowDisplay(ConsoleColor.DarkMagenta, "Enter Id for Changing id for Company");
-            int id = int.Parse(Console.ReadLine());
-            Helper.ShowDisplay(ConsoleColor.DarkGreen, "Enter Company Name");
-            string name = Console.ReadLine();
-            Helper.ShowDisplay(ConsoleColor.DarkMagenta , "Enter Company Size");
-            int size = int.Parse(Console.ReadLine());
-            Company company = new Company
-            {
-                Name = name,
-                MaxSize = size,
-            };
-            if (companyService.Update(id, company)!=null)
-            {
-                Helper.ShowDisplay(ConsoleColor.DarkRed, "Company Updated");
-            }
-            else
-            {
-                Helper.ShowDisplay(ConsoleColor.DarkYellow, "Something went wrong ");
-            }
+            
 
+            Console.WriteLine("Plese enter the id");
+            int id = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Plese enter the name of new ");
+            string name = Console.ReadLine();
+            Console.WriteLine("enter new max size");
+            int maxSize= int.Parse(Console.ReadLine());
+
+            Company company = new Company();
+            company.MaxSize = maxSize;
+            company.Name = name;
+
+            companyService.Update(id,company);
+            Console.WriteLine($"{company.Name } updated");
 
         }
         public void GetWithName()

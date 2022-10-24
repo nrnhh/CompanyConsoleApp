@@ -19,7 +19,7 @@ namespace CompanyConsoleApp
                 +"3-Delete Company :" +"4-GetCompanyById :" 
                 +"5-GetCompanyName :"+ "6-GetAll :" + "7- CreateWorker : " + "8-GetAllWorkers :" 
                 +"9-GetAllWorkersWithCompanyName :" +"10-DeleteWorker :" + "11-GetAllWorkersWithSameName : "
-                + "12-UpdateWorkerName : " + "13-GetWorkerById  : " +"14-GetWorkerWithSurname :" + "15- UpdateWorkerSurname :  "
+                 + "12-GetWorkerById  : " +"13-GetWorkerWithSurname :" + "14- UpdateWorker :  "
             );
 
 
@@ -74,8 +74,7 @@ namespace CompanyConsoleApp
                             workerController.GetAllWorkersWithSameName();
                             break;
 
-                            workerController.UpdateWorkerName();
-                            break;
+                            
                         case (int)Helper.Methods.GetWorkerById:
 
                             workerController.GetWithId();
@@ -86,7 +85,7 @@ namespace CompanyConsoleApp
                             break;
                         case (int)Helper.Methods.UpdateWorkerSurname:
 
-                            workerController.UpdateWorkerSurname();
+                            workerController.UpdateWorker();
                             break;
 
 

@@ -52,19 +52,20 @@ namespace DataAccess.Repositories
             }
         }
 
-        public bool Update(Company entity)
+        public bool Update(int id , Company newCompany)
         {
-            try
-            {
-                Company company = Get(n => n.Name == entity.Name);
-                company = entity;
-                return true;
-            }
-            catch (Exception)
+            Company company1 = new Company();
+            if (Get(n=>n.Id==id)!=null)
             {
 
-                return false;
+                company1 = Get(n => n.Id == id);
+                company1= new Company();
+                company1.Id = id;
+                return true;
+
             }
+            return false;
+            
         }
     }
 }

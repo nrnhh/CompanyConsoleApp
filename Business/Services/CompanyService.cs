@@ -103,29 +103,15 @@ namespace Business.Services
             return companyRepository.GetAll();
         }
 
-        public Company Update(int id, Company company)
+        public bool Update(int id, Company company)
         {
-            try
-            {
-                Company existCompany = companyRepository.Get(c => c.Id == id);
+            companyRepository.Update(id, company);
 
-               
-                if (existCompany != null)
-                {
-                    existCompany.Name = company.Name;
-                    existCompany.MaxSize = company.MaxSize;
-
-                    return existCompany;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch (Exception)
+            if (companyRepository.Update(id, company)==true)
             {
-                return null;
+                return true;
             }
+            return false;
         }
     }
 }

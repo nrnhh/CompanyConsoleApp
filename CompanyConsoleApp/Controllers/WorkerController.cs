@@ -124,7 +124,7 @@ namespace CompanyConsoleApp.Controllers
             worker.Surname = surname;
             worker.Name = name;
 
-                workerService.UpdateWorker(id, worker);
+            workerService.UpdateWorker(id, worker);
             Console.WriteLine($"{worker.Name} {worker.Surname} updated");
         }
 

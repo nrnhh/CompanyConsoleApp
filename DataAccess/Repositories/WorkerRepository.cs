@@ -53,14 +53,16 @@ namespace DataAccess.Repositories
 
         public bool Update(int id, Worker newEntity)
         {
-            Worker company1 = new Worker();
-            if (Get(n => n.Id == id) != null)
+            
+            Worker worker = Get(x => x.Id == id);
+
+            if (worker!=null)
             {
-
-                company1 = Get(n => n.Id == id);
-                Remove(company1);                newEntity.Id = id;
-                Add(newEntity);
-
+                worker.Name = newEntity.Name;
+                worker.Surname = newEntity.Surname;
+                
+                return true;
+                
             }
             return false;
         }
